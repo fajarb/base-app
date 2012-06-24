@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- <html lang="en">
+  <head> -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US"
+      xmlns:fb="https://www.facebook.com/2008/fbml">     
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# brightspotdev: http://ogp.me/ns/fb/brightspotdev#">    
+    <meta charset="utf-8">
+    <title><%= content_for?(:title) ? yield(:title) : "Auth" %></title>
+    
+<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	  <meta name="viewport" content="width=device-width">
+	  
+	  <%= csrf_meta_tags %>
+
+<!-- Main stylesheet imports bootstrap css and adds custom -->
+    <%= stylesheet_link_tag "application", :media => "all" %>    
+    
+    <style>
+    	/* To keep short panes open decently tall */
+    	.tab-pane {min-height: 400px;}
+    </style>
+
+<!-- Modernizr for browser feature-checking 
+		 + HTML5shiv (included in modernizr) see modernizr.com -->
+  	<%= javascript_include_tag "modernizr" %>
+
+<!-- Fav and touch icons -->
+		<!-- alternatively, remove these lines and place icons
+				 directly in the site parent folder 
+				 mathiasbynens.be/notes/touch-icons -->
+<!-- 
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+-->
+    <%= yield :head %>
+  </head>
+
+
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Base App</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="/"><i class="icon-home icon-white"></i> Home</a></li>
+              <li><%#= link_to "Movies", movies_path %></li>
+            </ul>
+            <%#= tabs %>            
+            <ul class="nav pull-right">
+            	<li class="dropdown">
+            		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user ? current_user.fullname : "Log In" %> <b class="caret"></b></a>
+            		<ul class="dropdown-menu">
+            		  <% if current_user %>
+      	        		<li><%#= link_to "Settings", services_path %></li>
+  	            		<li><%= link_to "Log Out", signout_path %></li>
+  	            	<% else %>
+                    <li><%= link_to "Facebook", "/auth/facebook" %></li>
+                    <li><%= link_to "Twitter", "/auth/twitter" %></li>
+                    <li><%= link_to "Login", "/auth/identity" %></li>
+            		  <% end %>
+	            	</ul>
+            	</li>            	
+            </ul>
+            <form class="navbar-search pull-right">
+  			       <input type="text" class="search-query" placeholder="Search">
+			      </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+    
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

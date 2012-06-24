@@ -1,0 +1,8 @@
+<% if current_user %>
+  <p>logged in!</p>
+  <p>Name: <%= current_user.fullname %></p>
+  <!-- <p>Provider: <%#= current_user.services.provider %></p> -->
+  <!-- <p>UID: <%#= current_user.services.uid %></p> -->
+<% else %>
+  Hello World!
+<% end %>
