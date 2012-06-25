@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   def create
     # raise env['omniauth.auth'].to_yaml
-    
+
     # Find an identity here
     identity = Identity.find_with_omniauth(env['omniauth.auth'])
   
