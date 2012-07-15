@@ -43,3 +43,17 @@ gem 'omniauth-identity'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
+
+group :development do
+  gem 'debugger'
+  gem 'guard-rspec'
+  gem 'guard-spork'
+end
+
+group :test do
+  gem 'machinist', '>= 2.0.0.beta2'
+end
+
+group :test, :development do
+  gem 'rspec-rails', '~> 2.0'
+end
