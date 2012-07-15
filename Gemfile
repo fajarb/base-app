@@ -43,6 +43,7 @@ gem 'omniauth-identity'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
+gem 'simple_form'
 
 group :development do
   gem 'debugger'
