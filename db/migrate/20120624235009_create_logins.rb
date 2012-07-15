@@ -1,6 +1,6 @@
-class CreateAuthentications < ActiveRecord::Migration
+class CreateLogins < ActiveRecord::Migration
   def change
-    create_table :authentications do |t|
+    create_table :logins do |t|
       t.string :email, :null => false
       t.string :password_digest, :null => false
       t.datetime :created_at, :null => false
