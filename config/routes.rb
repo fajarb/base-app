@@ -1,5 +1,14 @@
 Auth::Application.routes.draw do
 
+  mount Doorkeeper::Engine => '/oauth'
+
+  namespace :api, defaults: {format: 'json'} do
+    scope module: :v1 do
+      resources :identities
+      # match 'user', to: 'users#show'
+    end
+  end
+
   root :to => 'home#index'
   match 'auth/:provider/callback' => 'sessions#create'
   match 'auth/failure' => redirect('/')

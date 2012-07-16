@@ -39,6 +39,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # To use debugger
 gem 'debugger'
 
+gem 'doorkeeper', '~> 0.4.2'
 gem 'omniauth-identity'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
